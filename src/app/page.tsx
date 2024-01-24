@@ -1,3 +1,13 @@
+import Sidebar from '@/components/sidebar';
+import { Flex, Box } from '@chakra-ui/react';
+
 export default function Home() {
-  return <main>Main Content</main>;
+  return (
+    <Flex>
+      <Sidebar />
+      <Box as="main" w="100%" paddingInline="5">
+        main content
+      </Box>
+    </Flex>
+  );
 }
