@@ -10,3 +10,7 @@ export { default as SettingsIcon } from './settings-icon';
 export { default as LogoutIcon } from './logout-icon';
 export { default as MoonIcon } from './moon-icon';
 export { default as SunIcon } from './sun-icon';
+export { default as SearchIcon } from './search-icon';
+export { default as CalendarLinearIcon } from './calendar-linear-icon';
+export { default as BellIcon } from './bell-icon';
+export { default as ArrowDownIcon } from './arrow-down-icon';

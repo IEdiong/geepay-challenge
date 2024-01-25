@@ -115,6 +115,7 @@ function ThemeSwitcher() {
   return (
     <Button
       onClick={() => setIsDarkTheme(!isDarkTheme)}
+      aria-label="Toggle theme"
       w="46px"
       h="92px"
       borderRadius="100px"
