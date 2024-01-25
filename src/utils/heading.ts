@@ -29,10 +29,11 @@ const Heading = defineStyleConfig({
       fontSize: '2xl',
       letterSpacing: '1px',
     },
+    //! In use
     h3: {
-      fontSize: '3xl',
-      lineHeight: '36px',
-      letterSpacing: '1.143px',
+      fontSize: 'lg',
+      lineHeight: '26px',
+      color: '#22242C',
     },
   },
   // The default `size` or `variant` values

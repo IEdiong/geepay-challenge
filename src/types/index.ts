@@ -7,6 +7,14 @@ export type Order = {
   status: Status;
 };
 
+export type Platform = {
+  id: number;
+  name: string;
+  value: number;
+  amount: number;
+  percentage: number;
+};
+
 type Status = 'Paid' | 'Refund';
 
 //TODO: 1. Convert date from string to Date object

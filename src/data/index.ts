@@ -1,4 +1,4 @@
-import { Order } from '@/types';
+import { Order, Platform } from '@/types';
 
 export const orders: Order[] = [
   {
@@ -45,5 +45,36 @@ export const orders: Order[] = [
     date: 'Nov 13, 2023',
     amount: 78000,
     status: 'Paid',
+  },
+];
+
+export const platforms: Platform[] = [
+  {
+    id: 1,
+    name: 'Book Bazaar',
+    value: 50,
+    amount: 2500000,
+    percentage: 15,
+  },
+  {
+    id: 2,
+    name: 'Artisan Aisle',
+    value: 45,
+    amount: 1800000,
+    percentage: 10,
+  },
+  {
+    id: 3,
+    name: 'Toy Troop',
+    value: 25,
+    amount: 1200000,
+    percentage: 8,
+  },
+  {
+    id: 4,
+    name: 'XStore',
+    value: 25,
+    amount: 600000,
+    percentage: 5,
   },
 ];

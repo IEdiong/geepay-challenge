@@ -1,6 +1,7 @@
 import Header from '@/components/header';
 import LastOrders from '@/components/last-orders';
 import Sidebar from '@/components/sidebar';
+import TopPlatform from '@/components/top-platform';
 import { Flex, Box, VStack } from '@chakra-ui/react';
 
 export default function Home() {
@@ -14,9 +15,12 @@ export default function Home() {
           padding="5"
           bg="#FAFAFA"
           minH="100vh"
-          align="flex-start"
+          align="stretch"
         >
-          <LastOrders />
+          <Flex columnGap="26px" align="flex-start">
+            <LastOrders />
+            <TopPlatform />
+          </Flex>
         </VStack>
       </Box>
     </Flex>

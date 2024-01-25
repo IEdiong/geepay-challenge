@@ -13,6 +13,7 @@ const colors = {
       // 50: '#FAFAFA',
       // 100: '#F1F1F1',
       500: '#737373',
+      600: '#525252',
     },
     white: '#FFFFFF',
     black: {
@@ -20,8 +21,20 @@ const colors = {
       // 500: '#101010',
       // 900: '#000000',
     },
+    gray: {
+      100: '#F5F5F5',
+    },
     error: '#ED544E',
+    purple: '#6160DC',
+    blue: '#54C5EB',
+    orange: '#FFB74A',
+    red: '#FF4A55',
   },
+};
+
+// ColorSchemes
+const colorsSchemes = {
+  purple: '#6160DC',
 };
 
 export const theme = extendTheme({
@@ -30,6 +43,7 @@ export const theme = extendTheme({
     body: 'var(--font-pj-sans)',
   },
   colors,
+  colorsSchemes,
   components: {
     Heading,
     Table: tableTheme,
