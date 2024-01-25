@@ -18,11 +18,13 @@ import { DocumentDownloadIcon } from './icons';
 import { Order } from '@/types';
 import { orders } from '@/data';
 
-export default function LastOrders({ width }: { width?: string }) {
+export default function LastOrders() {
   return (
     <VStack
       as="section"
-      w={width ? width : '806px'}
+      flexBasis="806px"
+      flexShrink="1"
+      flexGrow="1"
       paddingBlockStart="18px"
       paddingBlockEnd="31px"
       paddingInline="5"

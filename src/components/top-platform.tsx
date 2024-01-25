@@ -17,6 +17,8 @@ export default function TopPlatform() {
       bg="gfc.white"
       borderRadius="lg"
       flexGrow="1"
+      flexBasis="488px"
+      flexShrink="1"
       align="stretch"
     >
       <HStack as="header" justify="space-between">

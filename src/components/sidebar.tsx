@@ -22,7 +22,6 @@ export default function Sidebar() {
     <VStack
       as="nav"
       w="20"
-      minH="100vh"
       bg="#F7F8FA"
       borderRight="1px solid #EBECF2"
       paddingBlock="5"
