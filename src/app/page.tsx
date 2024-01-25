@@ -1,3 +1,4 @@
+import AnalyticsSummary from '@/components/analytics-summary';
 import Header from '@/components/header';
 import LastOrders from '@/components/last-orders';
 import SalesTrends from '@/components/sales-trends';
@@ -14,6 +15,7 @@ export default function Home() {
         <VStack rowGap="5" padding="5" align="stretch">
           <Flex columnGap="5">
             <SalesTrends />
+            <AnalyticsSummary />
           </Flex>
           <Flex columnGap="26px" align="flex-start" h="max-content">
             <LastOrders />
