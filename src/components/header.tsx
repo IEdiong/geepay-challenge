@@ -29,7 +29,7 @@ export default function Header() {
       gap="22px"
     >
       <HStack justify="space-between" flexGrow="1">
-        <Heading as="h1" fontSize="20px" fontWeight="600" lineHeight="7">
+        <Heading as="h1" variant="h1">
           Dashboard
         </Heading>
         <InputGroup w="fit-content" className={fonts.inter.className}>
@@ -103,6 +103,4 @@ export default function Header() {
   );
 }
 
-// TODO: 1. Set Search bar placeholder text font to Inter
-// TODO: 2. Create a custom style component for the h1 text heading
-// TODO: 3. Change the text in the header calendar to inter
+// TODO: 1. Create a custom style component for the h1 text heading

@@ -14,3 +14,4 @@ export { default as SearchIcon } from './search-icon';
 export { default as CalendarLinearIcon } from './calendar-linear-icon';
 export { default as BellIcon } from './bell-icon';
 export { default as ArrowDownIcon } from './arrow-down-icon';
+export { default as DocumentDownloadIcon } from './document-download-icon';
