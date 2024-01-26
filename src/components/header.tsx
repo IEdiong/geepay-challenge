@@ -23,16 +23,20 @@ export default function Header() {
     <HStack
       h="88px"
       paddingBlock="18px"
-      paddingInline="5"
+      paddingInline={{ base: '4', lg: '5' }}
       bg="#FAFAFA"
       borderBottom="1px solid #E5EAEF"
       gap="22px"
     >
-      <HStack justify="space-between" flexGrow="1">
+      <HStack justify="space-between" flexGrow="1" columnGap="66px">
         <Heading as="h1" variant="h1">
           Dashboard
         </Heading>
-        <InputGroup w="fit-content" className={fonts.inter.className}>
+        <InputGroup
+          display={{ base: 'none', lg: 'block' }}
+          w="fit-content"
+          className={fonts.inter.className}
+        >
           <InputLeftElement pointerEvents="none">
             <SearchIcon w="18px" h="18px" />
           </InputLeftElement>
@@ -47,13 +51,20 @@ export default function Header() {
             borderRadius="24px"
             borderColor="#DADDDD"
             bg="white"
-            w="349px"
+            minW={{ base: 'full' }}
+            w={{ base: 'full', xl: '349px' }}
           />
         </InputGroup>
       </HStack>
       <HStack>
         <HStack columnGap="5" className={fonts.inter.className}>
-          <HStack columnGap="10px" paddingBlock="3" paddingInline="4" h="10">
+          <HStack
+            display={{ base: 'none', lg: 'flex' }}
+            columnGap="10px"
+            paddingBlock="3"
+            paddingInline="4"
+            h="10"
+          >
             <CalendarLinearIcon w="5" h="5" />
             <Text fontSize="14px" fontWeight="500" lineHeight="22px">
               November 15, 2023
@@ -87,7 +98,12 @@ export default function Header() {
               w="38px"
               h="38px"
             />
-            <VStack rowGap="1" align="flex-end" lineHeight="normal">
+            <VStack
+              display={{ base: 'none', lg: 'flex' }}
+              rowGap="1"
+              align="flex-end"
+              lineHeight="normal"
+            >
               <Text color="#26282C" fontWeight="400">
                 Justin Bergson
               </Text>

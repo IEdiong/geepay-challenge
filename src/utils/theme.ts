@@ -11,17 +11,10 @@ const colors = {
       500: '#20B691',
     },
     neutral: {
-      // 50: '#FAFAFA',
-      // 100: '#F1F1F1',
       500: '#737373',
       600: '#525252',
     },
     white: '#FFFFFF',
-    black: {
-      // 300: '#0E0E0E',
-      // 500: '#101010',
-      // 900: '#000000',
-    },
     gray: {
       100: '#F5F5F5',
     },
@@ -33,9 +26,14 @@ const colors = {
   },
 };
 
-// ColorSchemes
-const colorsSchemes = {
-  purple: '#6160DC',
+// breakpoints
+const breakpoints = {
+  base: '0em',
+  sm: '30em',
+  md: '46em',
+  lg: '75em',
+  xl: '80em',
+  '2xl': '96em',
 };
 
 export const theme = extendTheme({
@@ -44,7 +42,7 @@ export const theme = extendTheme({
     body: 'var(--font-pj-sans)',
   },
   colors,
-  colorsSchemes,
+  breakpoints,
   components: {
     Heading,
     Table: tableTheme,

@@ -6,7 +6,7 @@ import { ArrowDownIcon } from './icons';
 export default function SalesTrend() {
   return (
     <VStack
-      w="806px"
+      w={{ base: 'full', lg: '806px' }}
       h="374px"
       paddingBlock="4"
       paddingInline="5"

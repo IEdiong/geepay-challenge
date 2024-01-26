@@ -22,9 +22,9 @@ export default function LastOrders() {
   return (
     <VStack
       as="section"
-      flexBasis="806px"
+      flexBasis={{ base: '1', lg: '806px' }}
       flexShrink="1"
-      flexGrow="1"
+      flexGrow={{ base: '0', lg: '1' }}
       paddingBlockStart="18px"
       paddingBlockEnd="31px"
       paddingInline="5"
@@ -32,6 +32,8 @@ export default function LastOrders() {
       bg="white"
       rowGap="14px"
       align="stretch"
+      h="auto"
+      w={{ base: 'full', lg: 'auto' }}
     >
       <HStack as="header" justify="space-between">
         <Heading>Last Orders</Heading>
@@ -59,9 +61,9 @@ function OrderTableComponent({ data }: { data: Array<Order> }) {
         <Thead>
           <Tr>
             <Th>Name</Th>
-            <Th>Date</Th>
-            <Th>Amount</Th>
-            <Th>Status</Th>
+            <Th display={{ base: 'none', sm: 'table-cell' }}>Date</Th>
+            <Th display={{ base: 'none', md: 'table-cell' }}>Amount</Th>
+            <Th display={{ base: 'none', md: 'table-cell' }}>Status</Th>
             <Th>Invoice</Th>
           </Tr>
         </Thead>
@@ -79,12 +81,15 @@ function OrderTableComponent({ data }: { data: Array<Order> }) {
                   <span>{order.name}</span>
                 </HStack>
               </Td>
-              <Td>{order.date}</Td>
-              <Td>${order.amount.toLocaleString()}</Td>
+              <Td display={{ base: 'none', sm: 'table-cell' }}>{order.date}</Td>
+              <Td display={{ base: 'none', md: 'table-cell' }}>
+                ${order.amount.toLocaleString()}
+              </Td>
               <Td
                 color={
                   order.status === 'Paid' ? 'gfc.primary.400' : 'gfc.error'
                 }
+                display={{ base: 'none', md: 'table-cell' }}
               >
                 {order.status}
               </Td>

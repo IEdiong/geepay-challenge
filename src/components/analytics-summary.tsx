@@ -23,7 +23,12 @@ import TrendDownIcon from './icons/trend-down-icon';
 
 export default function AnalyticsSummary() {
   return (
-    <Grid minW="494px" flexGrow="1" gridTemplateColumns="1fr 1fr" gap="4">
+    <Grid
+      minW={{ base: 'full', md: '494px' }}
+      flexGrow="1"
+      gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
+      gap="4"
+    >
       <GridItem>
         <SummaryCard
           title="Total Order"

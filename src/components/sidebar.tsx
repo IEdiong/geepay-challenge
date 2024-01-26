@@ -1,5 +1,5 @@
 'use client';
-import { Button, Flex, VStack } from '@chakra-ui/react';
+import { Box, Button, Flex, VStack } from '@chakra-ui/react';
 import {
   AnalyticsIcon,
   ArrowRightIcon,
@@ -19,14 +19,17 @@ import { useState } from 'react';
 
 export default function Sidebar() {
   return (
-    <VStack
+    <Box
       as="nav"
-      w="20"
+      w={{ base: '0', md: '20' }}
       bg="#F7F8FA"
       borderRight="1px solid #EBECF2"
       paddingBlock="5"
-      align="center"
+      display={{ base: 'none', md: 'flex' }}
+      flexDirection="column"
+      alignItems="center"
       gap="256px"
+      flexShrink="0"
     >
       <VStack gap="5" w="full">
         <LogoIcon w="10" h="10" />
@@ -64,7 +67,7 @@ export default function Sidebar() {
           <LogoutIcon w="6" h="6" />
         </NavLink>
       </VStack>
-    </VStack>
+    </Box>
   );
 }
 

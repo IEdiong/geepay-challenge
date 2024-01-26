@@ -20,6 +20,7 @@ export default function TopPlatform() {
       flexBasis="488px"
       flexShrink="1"
       align="stretch"
+      w="full"
     >
       <HStack as="header" justify="space-between">
         <Heading as="h2" variant="h2">
