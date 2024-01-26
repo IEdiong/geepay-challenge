@@ -1,7 +1,7 @@
 'use client';
-import { HStack, Heading, VStack } from '@chakra-ui/react';
+import { HStack, Heading, VStack, Text, Select } from '@chakra-ui/react';
 import SalesChart from './sales-chart';
-import { Link } from '@chakra-ui/next-js';
+import { ArrowDownIcon } from './icons';
 
 export default function SalesTrend() {
   return (
@@ -18,17 +18,30 @@ export default function SalesTrend() {
     >
       <HStack as="header" justify="space-between">
         <Heading>Last Orders</Heading>
-        <Link
-          href="/"
-          color="gfc.primary.400"
-          fontWeight="medium"
-          fontSize="lg"
-          lineHeight="26px"
-          transition="all 0.4s ease-in-out"
-          _hover={{ color: 'gfc.primary.500' }}
+        <HStack
+          columnGap="10px"
+          w="max-content"
+          align="center"
+          justify="space-between"
         >
-          See All
-        </Link>
+          <Text
+            color="#3A3F51"
+            fontSize="sm"
+            fontWeight="medium"
+            lineHeight="22px"
+            flexShrink="0"
+          >
+            Short by :
+          </Text>
+          <Select
+            placeholder="Weekly"
+            icon={<ArrowDownIcon w="5" h="5" />}
+            variant="brand"
+            cursor="pointer"
+          >
+            <option value="option2">Monthly</option>
+          </Select>
+        </HStack>
       </HStack>
       <SalesChart />
     </VStack>

@@ -1,6 +1,7 @@
 import { extendTheme } from '@chakra-ui/react';
 import Heading from './heading';
 import { tableTheme } from './table';
+import { selectTheme } from './select';
 
 // Colors
 const colors = {
@@ -47,5 +48,6 @@ export const theme = extendTheme({
   components: {
     Heading,
     Table: tableTheme,
+    Select: selectTheme,
   },
 });
