@@ -17,7 +17,7 @@ export default function SalesTrend() {
       align="stretch"
     >
       <HStack as="header" justify="space-between">
-        <Heading>Last Orders</Heading>
+        <Heading>Sales Trends</Heading>
         <HStack
           columnGap="10px"
           w="max-content"

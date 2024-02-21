@@ -1,4 +1,4 @@
-import { Order, Platform } from '@/types';
+import { Order, Platform, SalesTrend } from '@/types';
 
 export const orders: Order[] = [
   {
@@ -76,5 +76,80 @@ export const platforms: Platform[] = [
     value: 25,
     amount: 600000,
     percentage: 5,
+  },
+];
+
+export const salesTrends: SalesTrend[] = [
+  {
+    name: 'Jan',
+    sales: 10000,
+    pv: 2400,
+    amt: 2400,
+  },
+  {
+    name: 'Feb',
+    sales: 20000,
+    pv: 1398,
+    amt: 2210,
+  },
+  {
+    name: 'Mar',
+    sales: 8000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
+    name: 'Apr',
+    sales: 30000,
+    pv: 3908,
+    amt: 2000,
+  },
+  {
+    name: 'May',
+    sales: 10000,
+    pv: 4800,
+    amt: 2181,
+  },
+  {
+    name: 'Jun',
+    sales: 45000,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    name: 'Jul',
+    sales: 10000,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: 'Aug',
+    sales: 25000,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: 'Sep',
+    sales: 35000,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: 'Oct',
+    sales: 5000,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: 'Nov',
+    sales: 30000,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: 'Dec',
+    sales: 28000,
+    pv: 4300,
+    amt: 2100,
   },
 ];

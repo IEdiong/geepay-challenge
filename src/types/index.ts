@@ -15,6 +15,13 @@ export type Platform = {
   percentage: number;
 };
 
+export interface SalesTrend {
+  name: string;
+  sales: number;
+  pv: number;
+  amt: number;
+}
+
 type Status = 'Paid' | 'Refund';
 
 //TODO: 1. Convert date from string to Date object
