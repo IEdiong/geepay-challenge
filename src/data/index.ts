@@ -136,7 +136,7 @@ export const salesTrends: SalesTrend[] = [
   },
   {
     name: 'Oct',
-    sales: 5000,
+    sales: 7500,
     pv: 4300,
     amt: 2100,
   },

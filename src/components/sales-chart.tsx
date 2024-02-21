@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { salesTrends as data } from '@/data';
 import {
   Bar,
@@ -10,19 +10,29 @@ import {
   ResponsiveContainer,
   Cell,
   CartesianGrid,
+  Tooltip,
 } from 'recharts';
+import CustomTooltip from './custom-tooltip';
+import { Coord } from '@/types';
 
 export default function SalesChart() {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [graphData, setGraphData] = useState({ x: 0, y: 0, width: 0 });
+  const [toolTipSize, setToolTipSize] = useState<Coord>({ w: 0, h: 0 });
   const gradientId = 'colorGradient';
 
-  const handleBarMouseOver = (_: any, index: any) => {
-    setActiveIndex(index);
-  };
+  const handleBarMouseOver = useCallback((data: any, index: number) => {
+    const { x, y, width } = data;
 
-  const handleBarMouseLeave = () => {
+    // console.log({ x, y, width });
+
+    setGraphData({ x, y, width });
+    setActiveIndex(index);
+  }, []);
+
+  const handleBarMouseLeave = useCallback(() => {
     setActiveIndex(null);
-  };
+  }, []);
 
   const handleCellFillColor = (index: number) => {
     if (activeIndex === null) return `url(#${gradientId})`;
@@ -33,26 +43,6 @@ export default function SalesChart() {
   };
 
   const formatYAxis = (tick: any) => tick.toLocaleString();
-
-  // const renderCustomizedLabel = (props: any) => {
-  //   const { x, y, width, height, value } = props;
-  //   const radius = 10;
-
-  //   return (
-  //     <g>
-  //       <circle cx={x + width / 2} cy={y - radius} r={radius} fill="#8884d8" />
-  //       <text
-  //         x={x + width / 2}
-  //         y={y - radius}
-  //         fill="#fff"
-  //         textAnchor="middle"
-  //         dominantBaseline="middle"
-  //       >
-  //         {value.split(' ')[1]}
-  //       </text>
-  //     </g>
-  //   );
-  // };
 
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -65,9 +55,9 @@ export default function SalesChart() {
       >
         <defs>
           <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="15%" stopColor="#34CAA5" stopOpacity={0.8} />
+            <stop offset="20%" stopColor="#34CAA5" stopOpacity={0.8} />
             <stop
-              offset="85%"
+              offset="100%"
               stopColor="rgba(52, 202, 165, 0.10)"
               stopOpacity={0.8}
             />
@@ -96,6 +86,18 @@ export default function SalesChart() {
           axisLine={false}
           tickMargin={12}
         />
+
+        <Tooltip
+          content={<CustomTooltip setTooltipSize={setToolTipSize} />}
+          cursor={false}
+          allowEscapeViewBox={{ x: true, y: false }}
+          position={{
+            x: graphData.x - toolTipSize.w / 3.2,
+            y: graphData.y - toolTipSize.h - 3,
+          }}
+          active={activeIndex !== null ? true : false}
+        />
+
         <Bar
           onMouseEnter={handleBarMouseOver}
           onMouseLeave={handleBarMouseLeave}

@@ -1,3 +1,8 @@
+export type Coord = {
+  w: number;
+  h: number;
+};
+
 export type Order = {
   id: number;
   name: string;
