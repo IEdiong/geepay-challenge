@@ -20,9 +20,17 @@ export default function SalesChart() {
     setActiveIndex(index);
   };
 
-  // const handleBarMouseLeave = () => {
-  //   setActiveIndex(null);
-  // };
+  const handleBarMouseLeave = () => {
+    setActiveIndex(null);
+  };
+
+  const handleCellFillColor = (index: number) => {
+    if (activeIndex === null) return `url(#${gradientId})`;
+
+    return index === activeIndex
+      ? `url(#${gradientId})`
+      : 'rgba(52, 202, 165, 0.10)';
+  };
 
   const formatYAxis = (tick: any) => tick.toLocaleString();
 
@@ -90,18 +98,15 @@ export default function SalesChart() {
         />
         <Bar
           onMouseEnter={handleBarMouseOver}
-          // onMouseLeave={handleBarMouseLeave}
+          onMouseLeave={handleBarMouseLeave}
           dataKey="sales"
           radius={[20, 20, 0, 0]}
         >
           {data.map((entry, index) => (
             <Cell
               cursor="pointer"
-              fill={
-                index === activeIndex
-                  ? `url(#${gradientId})`
-                  : 'rgba(52, 202, 165, 0.10)'
-              }
+              fill={handleCellFillColor(index)}
+              style={{ transition: 'fill 2s ease-in-out .5s' }}
               key={`cell-${index}`}
             />
           ))}
