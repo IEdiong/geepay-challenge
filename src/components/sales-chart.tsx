@@ -1,6 +1,5 @@
 'use client';
 
-import { useCallback, useState } from 'react';
 import { salesTrends as data } from '@/data';
 import {
   Bar,
@@ -13,36 +12,21 @@ import {
   Tooltip,
 } from 'recharts';
 import CustomTooltip from './custom-tooltip';
-import { Coord } from '@/types';
+import { useSales } from '@/hooks/use-sales';
+import { memo } from 'react';
 
-export default function SalesChart() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [graphData, setGraphData] = useState({ x: 0, y: 0, width: 0 });
-  const [toolTipSize, setToolTipSize] = useState<Coord>({ w: 0, h: 0 });
-  const gradientId = 'colorGradient';
-
-  const handleBarMouseOver = useCallback((data: any, index: number) => {
-    const { x, y, width } = data;
-
-    // console.log({ x, y, width });
-
-    setGraphData({ x, y, width });
-    setActiveIndex(index);
-  }, []);
-
-  const handleBarMouseLeave = useCallback(() => {
-    setActiveIndex(null);
-  }, []);
-
-  const handleCellFillColor = (index: number) => {
-    if (activeIndex === null) return `url(#${gradientId})`;
-
-    return index === activeIndex
-      ? `url(#${gradientId})`
-      : 'rgba(52, 202, 165, 0.10)';
-  };
-
-  const formatYAxis = (tick: any) => tick.toLocaleString();
+function SalesChart() {
+  const {
+    gradientId,
+    activeIndex,
+    toolTipSize,
+    setToolTipSize,
+    graphData,
+    handleBarMouseOver,
+    handleBarMouseLeave,
+    handleCellFillColor,
+    formatYAxis,
+  } = useSales();
 
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -117,3 +101,5 @@ export default function SalesChart() {
     </ResponsiveContainer>
   );
 }
+
+export default memo(SalesChart); // only rerender this component if its props changes
