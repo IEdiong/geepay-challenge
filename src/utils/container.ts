@@ -9,7 +9,6 @@ const Container = defineStyleConfig({
     position: 'relative',
     paddingInline: '0',
     maxWidth: {
-      md: 'container.md',
       lg: 'container.xl',
     },
   },

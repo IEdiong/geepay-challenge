@@ -30,11 +30,10 @@ const colors = {
 // breakpoints
 const breakpoints = {
   base: '0em',
-  sm: '30em',
-  md: '46em',
-  lg: '75em',
-  xl: '90em',
-  '2xl': '96em',
+  sm: '52em', // 832px
+  md: '64em', // 1024px
+  lg: '80em', // 1280px
+  xl: '90em', // 1440px
 };
 
 // sizes

@@ -20,13 +20,16 @@ export default function Home() {
           <Container>
             <Grid
               gap="20px"
-              templateColumns={{ lg: 'minmax(806px, auto) max-content' }}
+              templateColumns={{
+                base: '1fr',
+                xl: 'minmax(806px, auto) max-content',
+              }}
               maxW="full"
             >
-              <GridItem colStart={2} colSpan={1}>
+              <GridItem colStart={{ base: 1, xl: 2 }} colSpan={1}>
                 <AnalyticsSummary />
               </GridItem>
-              <GridItem rowStart={1} colSpan={1}>
+              <GridItem rowStart={{ base: 2, xl: 1 }} colSpan={1}>
                 <SalesTrends />
               </GridItem>
               <GridItem colSpan={1}>
@@ -38,31 +41,6 @@ export default function Home() {
             </Grid>
           </Container>
         </Box>
-        {/* <VStack
-          rowGap="5"
-          paddingInline={{ base: '4', lg: '5' }}
-          paddingBlock="5"
-          align="stretch"
-        >
-          <Flex
-            flexDir={{ base: 'column', lg: 'row' }}
-            rowGap="5"
-            columnGap="5"
-          >
-            <SalesTrends />
-            <AnalyticsSummary />
-          </Flex>
-          <Flex
-            flexDir={{ base: 'column', lg: 'row' }}
-            columnGap="26px"
-            rowGap="5"
-            align="flex-start"
-            h="max-content"
-          >
-            <LastOrders />
-            <TopPlatform />
-          </Flex>
-        </VStack> */}
       </VStack>
     </Flex>
   );

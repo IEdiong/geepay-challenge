@@ -26,7 +26,7 @@ export default function AnalyticsSummary() {
     <Grid
       minW={{ base: 'full', md: '494px' }}
       flexGrow="1"
-      gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
+      gridTemplateColumns={{ base: '1fr', sm: '1fr 1fr' }}
       gap="4"
     >
       <GridItem as="article">

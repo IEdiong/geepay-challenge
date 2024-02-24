@@ -21,11 +21,11 @@ export default function Sidebar() {
   return (
     <Box
       as="nav"
-      w={{ base: '0', md: '20' }}
+      w={{ base: '0', sm: '20' }}
       bg="#F7F8FA"
       borderRight="1px solid #EBECF2"
       paddingBlock="5"
-      display={{ base: 'none', md: 'flex' }}
+      display={{ base: 'none', sm: 'flex' }}
       flexDirection="column"
       alignItems="center"
       gap="256px"
