@@ -4,7 +4,7 @@ import LastOrders from '@/components/last-orders';
 import SalesTrends from '@/components/sales-trends';
 import Sidebar from '@/components/sidebar';
 import TopPlatform from '@/components/top-platform';
-import { Flex, VStack } from '@chakra-ui/react';
+import { Box, Container, Flex, Grid, GridItem, VStack } from '@chakra-ui/react';
 
 export default function Home() {
   return (
@@ -12,7 +12,33 @@ export default function Home() {
       <Sidebar />
       <VStack as="main" gap="0" align="stretch" overflowX="hidden" w="full">
         <Header />
-        <VStack
+        <Box
+          paddingInline={{ base: '4', lg: '5' }}
+          paddingBlock="5"
+          pos="relative"
+        >
+          <Container>
+            <Grid
+              gap="20px"
+              templateColumns={{ lg: 'minmax(806px, auto) max-content' }}
+              maxW="full"
+            >
+              <GridItem colStart={2} colSpan={1}>
+                <AnalyticsSummary />
+              </GridItem>
+              <GridItem rowStart={1} colSpan={1}>
+                <SalesTrends />
+              </GridItem>
+              <GridItem colSpan={1}>
+                <LastOrders />
+              </GridItem>
+              <GridItem colSpan={1}>
+                <TopPlatform />
+              </GridItem>
+            </Grid>
+          </Container>
+        </Box>
+        {/* <VStack
           rowGap="5"
           paddingInline={{ base: '4', lg: '5' }}
           paddingBlock="5"
@@ -36,7 +62,7 @@ export default function Home() {
             <LastOrders />
             <TopPlatform />
           </Flex>
-        </VStack>
+        </VStack> */}
       </VStack>
     </Flex>
   );

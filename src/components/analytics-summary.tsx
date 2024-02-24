@@ -29,7 +29,7 @@ export default function AnalyticsSummary() {
       gridTemplateColumns={{ base: '1fr', md: '1fr 1fr' }}
       gap="4"
     >
-      <GridItem>
+      <GridItem as="article">
         <SummaryCard
           title="Total Order"
           value={350}
@@ -38,7 +38,7 @@ export default function AnalyticsSummary() {
           icon={<BoxTickIcon w="6" h="6" />}
         />
       </GridItem>
-      <GridItem>
+      <GridItem as="article">
         <SummaryCard
           title="Average Sales"
           value={1567}
@@ -47,7 +47,7 @@ export default function AnalyticsSummary() {
           icon={<ShoppingCartIcon w="6" h="6" />}
         />
       </GridItem>
-      <GridItem>
+      <GridItem as="article">
         <SummaryCard
           title="Total Refund"
           value={270}
@@ -56,7 +56,7 @@ export default function AnalyticsSummary() {
           icon={<BoxRotateIcon w="6" h="6" />}
         />
       </GridItem>
-      <GridItem>
+      <GridItem as="article">
         <SummaryCard
           title="Total Income"
           value={350}

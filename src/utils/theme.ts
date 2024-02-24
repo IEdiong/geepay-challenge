@@ -2,6 +2,7 @@ import { extendTheme } from '@chakra-ui/react';
 import Heading from './heading';
 import { tableTheme } from './table';
 import { selectTheme } from './select';
+import Container from './container';
 
 // Colors
 const colors = {
@@ -32,8 +33,19 @@ const breakpoints = {
   sm: '30em',
   md: '46em',
   lg: '75em',
-  xl: '80em',
+  xl: '90em',
   '2xl': '96em',
+};
+
+// sizes
+const sizes = {
+  container: {
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    // xl: '1360px',
+    xl: '1535px',
+  },
 };
 
 export const theme = extendTheme({
@@ -43,9 +55,14 @@ export const theme = extendTheme({
   },
   colors,
   breakpoints,
+  sizes,
   components: {
     Heading,
+    Container,
     Table: tableTheme,
     Select: selectTheme,
+  },
+  config: {
+    cssVarPrefix: 'gee',
   },
 });

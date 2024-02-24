@@ -23,7 +23,7 @@ export function useSales() {
 
   const handleCellFillColor = useCallback(
     (index: number) => {
-      console.log(`Active index: ${activeIndex}; index: ${index}`);
+      // console.log(`Active index: ${activeIndex}; index: ${index}`);
 
       if (activeIndex === null) return `url(#${gradientId})`;
 
