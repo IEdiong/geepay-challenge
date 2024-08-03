@@ -17,7 +17,7 @@ import {
 import { DocumentDownloadIcon } from './icons';
 import { Order } from '@/types';
 import { orders } from '@/data';
-import { useEffect, useState } from 'react';
+import useUnsplashImage from '@/hooks/useUnsplashImage';
 
 export default function LastOrders() {
   return (
@@ -79,24 +79,7 @@ function OrderTableComponent({ data }: { data: Array<Order> }) {
 }
 
 function TableRow({ order }: { order: Order }) {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function fetchImages() {
-      const res = await fetch(
-        `https://api.unsplash.com/photos/${order.profilePictureUrl}/?client_id=${process.env.NEXT_PUBLIC_client_id}`
-      );
-
-      if (res.ok) {
-        const data = await res.json();
-        console.log('image returned:', data);
-
-        setImageUrl(data.urls.small_s3);
-      }
-    }
-
-    fetchImages();
-  }, []);
+  const { imageUrl } = useUnsplashImage(order.profilePictureUrl);
 
   return (
     <Tr>
