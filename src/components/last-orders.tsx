@@ -17,6 +17,7 @@ import {
 import { DocumentDownloadIcon } from './icons';
 import { Order } from '@/types';
 import { orders } from '@/data';
+import { useEffect, useState } from 'react';
 
 export default function LastOrders() {
   return (
@@ -69,53 +70,71 @@ function OrderTableComponent({ data }: { data: Array<Order> }) {
         </Thead>
         <Tbody>
           {data.map((order: Order) => (
-            <Tr key={order.id}>
-              <Td>
-                <HStack columnGap="10px">
-                  <Avatar
-                    name={order.name}
-                    src={order.profilePictureUrl}
-                    w="32px"
-                    h="32px"
-                  />
-                  <span>{order.name}</span>
-                </HStack>
-              </Td>
-              <Td display={{ base: 'none', sm: 'table-cell' }}>{order.date}</Td>
-              <Td display={{ base: 'none', md: 'table-cell' }}>
-                ${order.amount.toLocaleString()}
-              </Td>
-              <Td
-                color={
-                  order.status === 'Paid' ? 'gfc.primary.400' : 'gfc.error'
-                }
-                display={{ base: 'none', md: 'table-cell' }}
-              >
-                {order.status}
-              </Td>
-              <Td>
-                <Button
-                  aria-label="View file"
-                  columnGap="6px"
-                  h="auto"
-                  fontSize="sm"
-                  fontWeight="normal"
-                  lineHeight="22px"
-                  paddingInline="0"
-                  bg="transparent"
-                  _hover={{
-                    bg: 'none',
-                    fontWeight: 'medium',
-                  }}
-                >
-                  <DocumentDownloadIcon w="4" h="4" />
-                  <span>View</span>
-                </Button>
-              </Td>
-            </Tr>
+            <TableRow key={order.id} order={order} />
           ))}
         </Tbody>
       </Table>
     </TableContainer>
+  );
+}
+
+function TableRow({ order }: { order: Order }) {
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchImages() {
+      const res = await fetch(
+        `https://api.unsplash.com/photos/${order.profilePictureUrl}/?client_id=${process.env.NEXT_PUBLIC_client_id}`
+      );
+
+      if (res.ok) {
+        const data = await res.json();
+        console.log('image returned:', data);
+
+        setImageUrl(data.urls.small_s3);
+      }
+    }
+
+    fetchImages();
+  }, []);
+
+  return (
+    <Tr>
+      <Td>
+        <HStack columnGap="10px">
+          <Avatar name={order.name} src={imageUrl ?? ''} w="32px" h="32px" />
+          <span>{order.name}</span>
+        </HStack>
+      </Td>
+      <Td display={{ base: 'none', sm: 'table-cell' }}>{order.date}</Td>
+      <Td display={{ base: 'none', md: 'table-cell' }}>
+        ${order.amount.toLocaleString()}
+      </Td>
+      <Td
+        color={order.status === 'Paid' ? 'gfc.primary.400' : 'gfc.error'}
+        display={{ base: 'none', md: 'table-cell' }}
+      >
+        {order.status}
+      </Td>
+      <Td>
+        <Button
+          aria-label="View file"
+          columnGap="6px"
+          h="auto"
+          fontSize="sm"
+          fontWeight="normal"
+          lineHeight="22px"
+          paddingInline="0"
+          bg="transparent"
+          _hover={{
+            bg: 'none',
+            fontWeight: 'medium',
+          }}
+        >
+          <DocumentDownloadIcon w="4" h="4" />
+          <span>View</span>
+        </Button>
+      </Td>
+    </Tr>
   );
 }

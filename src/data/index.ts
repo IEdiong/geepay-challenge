@@ -4,8 +4,7 @@ export const orders: Order[] = [
   {
     id: 1,
     name: 'Marcus Bergson',
-    profilePictureUrl:
-      'https://source.unsplash.com/portrait-photography-of-man-95UF6LXe-Lo',
+    profilePictureUrl: `portrait-photography-of-man-95UF6LXe-Lo`,
     date: 'Nov 15, 2023',
     amount: 80000,
     status: 'Paid',
@@ -13,8 +12,7 @@ export const orders: Order[] = [
   {
     id: 2,
     name: 'Jaydon Vaccaro',
-    profilePictureUrl:
-      'https://source.unsplash.com/smiling-girl-in-white-tank-top-wOe_VGJe3TE',
+    profilePictureUrl: 'smiling-girl-in-white-tank-top-wOe_VGJe3TE',
     date: 'Nov 15, 2023',
     amount: 150000,
     status: 'Refund',
@@ -23,7 +21,7 @@ export const orders: Order[] = [
     id: 3,
     name: 'Corey Schleifer',
     profilePictureUrl:
-      'https://source.unsplash.com/a-woman-with-an-afro-is-looking-at-the-camera-xmSWVeGEnJw',
+      'a-woman-with-an-afro-is-looking-at-the-camera-xmSWVeGEnJw',
     date: 'Nov 14, 2023',
     amount: 87000,
     status: 'Paid',
@@ -32,7 +30,7 @@ export const orders: Order[] = [
     id: 4,
     name: 'Cooper Press',
     profilePictureUrl:
-      'https://source.unsplash.com/women-holding-her-collar-standing-near-wall-J1OScm_uHUQ',
+      'women-holding-her-collar-standing-near-wall-J1OScm_uHUQ',
     date: 'Nov 14, 2023',
     amount: 100000,
     status: 'Refund',
@@ -41,7 +39,7 @@ export const orders: Order[] = [
     id: 5,
     name: 'Phillip Lubin',
     profilePictureUrl:
-      'https://source.unsplash.com/head-and-shoulders-portrait-of-contemporary-african-american-man-smiling-at-camera-while-posing-against-blue-background-copy-space-PMghehKt3Ao',
+      'head-and-shoulders-portrait-of-contemporary-african-american-man-smiling-at-camera-while-posing-against-blue-background-copy-space-PMghehKt3Ao',
     date: 'Nov 13, 2023',
     amount: 78000,
     status: 'Paid',
