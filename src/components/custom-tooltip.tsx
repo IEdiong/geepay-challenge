@@ -2,11 +2,12 @@
 
 import { Box, Text } from '@chakra-ui/react';
 import { useCallback } from 'react';
+import { Coord } from '@/types';
 
 type PropType = {
   active?: boolean;
   payload?: Array<{ value?: number }>;
-  setTooltipSize: ({ _w, _h }: any) => void;
+  setTooltipSize: (_value: Coord) => void;
 };
 
 export default function CustomTooltip({
@@ -15,7 +16,7 @@ export default function CustomTooltip({
   setTooltipSize,
 }: PropType) {
   const handleBoundarySize = useCallback(
-    (ref: any) => {
+    (ref: SVGSVGElement | null) => {
       if (ref) {
         // console.log('Tooltip Width', ref.getBoundingClientRect().width);
         // console.log('Tooltip Height', ref.getBoundingClientRect().height);

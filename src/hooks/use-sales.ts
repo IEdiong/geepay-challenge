@@ -1,6 +1,7 @@
 'use client';
 import { useState, useCallback } from 'react';
 import { Coord } from '@/types';
+import type { BarRectangleItem } from 'recharts';
 
 export function useSales() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -8,14 +9,17 @@ export function useSales() {
   const [toolTipSize, setToolTipSize] = useState<Coord>({ w: 0, h: 0 });
   const gradientId = 'colorGradient';
 
-  const handleBarMouseOver = useCallback((data: any, index: number) => {
-    const { x, y, width } = data;
+  const handleBarMouseOver = useCallback(
+    (data: BarRectangleItem, index: number) => {
+      const { x, y, width } = data;
 
-    // console.log({ x, y, width });
+      // console.log({ x, y, width });
 
-    setGraphData({ x, y, width });
-    setActiveIndex(index);
-  }, []);
+      setGraphData({ x, y, width });
+      setActiveIndex(index);
+    },
+    []
+  );
 
   const handleBarMouseLeave = useCallback(() => {
     setActiveIndex(null);
