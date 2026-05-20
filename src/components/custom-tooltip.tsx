@@ -2,9 +2,10 @@
 
 import { Box, Text } from '@chakra-ui/react';
 import { useCallback } from 'react';
-import { TooltipProps } from 'recharts';
 
-type PropType = TooltipProps<number, string> & {
+type PropType = {
+  active?: boolean;
+  payload?: Array<{ value?: number }>;
   setTooltipSize: ({ _w, _h }: any) => void;
 };
 

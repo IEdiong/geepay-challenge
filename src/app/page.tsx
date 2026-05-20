@@ -1,3 +1,5 @@
+'use client';
+
 import AnalyticsSummary from '@/components/analytics-summary';
 import Header from '@/components/header';
 import LastOrders from '@/components/last-orders';
@@ -8,7 +10,7 @@ import { Box, Container, Flex, Grid, GridItem, VStack } from '@chakra-ui/react';
 
 export default function Home() {
   return (
-    <Flex bg="#FAFAFA" align="stretch">
+    <Flex bg="dashboardBg" align="stretch">
       <Sidebar />
       <VStack as="main" gap="0" align="stretch" overflowX="hidden" w="full">
         <Header />

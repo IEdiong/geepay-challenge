@@ -1,5 +1,5 @@
 'use client';
-import { HStack, Heading, VStack, Text, Select } from '@chakra-ui/react';
+import { HStack, Heading, VStack, Text, NativeSelect } from '@chakra-ui/react';
 import SalesChart from './sales-chart';
 import { ArrowDownIcon } from './icons';
 
@@ -12,8 +12,9 @@ export default function SalesTrend() {
       paddingBlock="4"
       paddingInline="5"
       borderRadius="14px"
-      bg="gfc.white"
-      border="1px solid #EDF2F7"
+      bg="cardBg"
+      border="1px solid"
+      borderColor="borderDefault"
       rowGap="4"
       align="stretch"
     >
@@ -26,7 +27,7 @@ export default function SalesTrend() {
           justify="space-between"
         >
           <Text
-            color="#3A3F51"
+            color="textSecondary"
             fontSize="sm"
             fontWeight="medium"
             lineHeight="22px"
@@ -34,14 +35,14 @@ export default function SalesTrend() {
           >
             Short by :
           </Text>
-          <Select
-            placeholder="Weekly"
-            icon={<ArrowDownIcon w="5" h="5" />}
-            variant="brand"
-            cursor="pointer"
-          >
-            <option value="option2">Monthly</option>
-          </Select>
+          <NativeSelect.Root w="fit-content">
+            <NativeSelect.Field placeholder="Weekly">
+              <option value="monthly">Monthly</option>
+            </NativeSelect.Field>
+            <NativeSelect.Indicator>
+              <ArrowDownIcon w="5" h="5" />
+            </NativeSelect.Indicator>
+          </NativeSelect.Root>
         </HStack>
       </HStack>
       <SalesChart />

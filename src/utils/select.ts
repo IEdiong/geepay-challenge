@@ -1,26 +1,23 @@
-import { selectAnatomy } from '@chakra-ui/anatomy';
-import { createMultiStyleConfigHelpers } from '@chakra-ui/react';
+import { defineSlotRecipe } from '@chakra-ui/react';
 
-const { definePartsStyle, defineMultiStyleConfig } =
-  createMultiStyleConfigHelpers(selectAnatomy.keys);
-
-const brand = definePartsStyle({
-  field: {
-    background: 'white',
-    border: '1px solid',
-    borderColor: '#E1DFDF',
-    borderRadius: 'full',
-    _dark: {},
-    _hover: {
-      background: 'gray.200',
-      // background: '#FAFAFA',
+export const nativeSelectSlotRecipe = defineSlotRecipe({
+  slots: ['root', 'field', 'indicator'],
+  base: {
+    root: {
+      background: 'white',
+      border: '1px solid',
+      borderColor: '#E1DFDF',
+      borderRadius: 'full',
+    },
+    field: {
+      background: 'white',
+      borderRadius: 'full',
+      _hover: {
+        background: 'gray.200',
+      },
+    },
+    indicator: {
+      color: '#000',
     },
   },
-  icon: {
-    color: '#000',
-  },
-});
-
-export const selectTheme = defineMultiStyleConfig({
-  variants: { brand },
 });

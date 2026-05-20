@@ -29,7 +29,7 @@ function SalesChart() {
   } = useSales();
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer width="100%" height={280}>
       <BarChart
         width={150}
         height={40}

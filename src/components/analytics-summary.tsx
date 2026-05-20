@@ -83,7 +83,7 @@ function SummaryCard({
   icon: React.ReactNode;
 }) {
   return (
-    <Box p="4" borderRadius="14px" bg="gfc.white">
+    <Box p="4" borderRadius="14px" bg="cardBg">
       <VStack rowGap="10px" align="stretch">
         <HStack justify="space-between" align="center">
           <Flex
@@ -93,7 +93,8 @@ function SummaryCard({
             justify="center"
             flexShrink="0"
             borderRadius="300px"
-            border="1px solid #E6E6E6"
+            border="1px solid"
+            borderColor="borderDefault"
           >
             {icon}
           </Flex>
@@ -105,7 +106,7 @@ function SummaryCard({
         </HStack>
         <VStack rowGap="5px" align="flex-start">
           <Heading
-            color="#898989"
+            color="textMuted"
             fontSize="lg"
             fontWeight="medium"
             lineHeight="26px"
@@ -113,7 +114,7 @@ function SummaryCard({
             {title}
           </Heading>
           <Text
-            color="#3A3F51"
+            color="textPrimary"
             fontSize="2xl"
             fontWeight="semibold"
             lineHeight="32px"
@@ -125,7 +126,7 @@ function SummaryCard({
           {hasGrown ? (
             <HStack
               bg="rgba(52, 202, 165, 0.12)"
-              color="#34CAA5"
+              color="gfc.primary.400"
               borderRadius="100px"
               paddingBlock="1"
               paddingInline="2"
@@ -149,7 +150,7 @@ function SummaryCard({
           ) : (
             <HStack
               bg="rgba(237, 84, 78, 0.12)"
-              color="#ED544E"
+              color="gfc.error"
               borderRadius="100px"
               paddingBlock="1"
               paddingInline="2"
@@ -171,7 +172,11 @@ function SummaryCard({
               <span>23,5%</span>
             </HStack>
           )}
-          <Text color="#606060" fontSize="sm" className={fonts.inter.className}>
+          <Text
+            color="textMuted"
+            fontSize="sm"
+            className={fonts.inter.className}
+          >
             vs. previous month
           </Text>
         </HStack>

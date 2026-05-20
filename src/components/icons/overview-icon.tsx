@@ -2,7 +2,14 @@ import { Icon } from '@chakra-ui/react';
 import { IconProps } from '@chakra-ui/react';
 
 const OverviewIcon = (props: IconProps) => (
-  <Icon width="24" height="24" viewBox="0 0 24 24" fill="none" {...props}>
+  <Icon
+    asChild={false}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    {...props}
+  >
     <path
       d="M7.24 2H5.34C3.15 2 2 3.15 2 5.33V7.23C2 9.41 3.15 10.56 5.33 10.56H7.23C9.41 10.56 10.56 9.41 10.56 7.23V5.33C10.57 3.15 9.42 2 7.24 2Z"
       fill="#0D062D"

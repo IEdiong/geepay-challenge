@@ -1,10 +1,9 @@
 import {
+  Box,
   HStack,
   Heading,
   IconButton,
   Input,
-  InputGroup,
-  InputLeftElement,
   Text,
 } from '@chakra-ui/react';
 import { BellIcon, CalendarLinearIcon, SearchIcon } from './icons';
@@ -17,22 +16,30 @@ export default function Header() {
       h="88px"
       paddingBlock="18px"
       paddingInline={{ base: '4', lg: '5' }}
-      bg="#FAFAFA"
-      borderBottom="1px solid #E5EAEF"
+      bg="headerBg"
+      borderBottom="1px solid"
+      borderColor="borderDefault"
       gap="22px"
     >
       <HStack justify="space-between" flexGrow="1" columnGap="66px">
-        <Heading as="h1" variant="h1">
+        <Heading as="h1" fontSize="xl" lineHeight="28px">
           Dashboard
         </Heading>
-        <InputGroup
+        <Box
           display={{ base: 'none', lg: 'block' }}
           w="fit-content"
+          position="relative"
           className={fonts.inter.className}
         >
-          <InputLeftElement pointerEvents="none">
+          <Box
+            position="absolute"
+            left="12px"
+            top="50%"
+            transform="translateY(-50%)"
+            zIndex="1"
+          >
             <SearchIcon w="18px" h="18px" />
-          </InputLeftElement>
+          </Box>
           <Input
             type="search"
             placeholder="Search..."
@@ -42,12 +49,12 @@ export default function Header() {
             }}
             paddingInlineStart="37px"
             borderRadius="24px"
-            borderColor="#DADDDD"
-            bg="white"
+            borderColor="borderInput"
+            bg="cardBg"
             minW={{ base: 'full' }}
             w={{ base: 'full', xl: '349px' }}
           />
-        </InputGroup>
+        </Box>
       </HStack>
       <HStack>
         <HStack columnGap="5" className={fonts.inter.className}>
@@ -66,13 +73,15 @@ export default function Header() {
           <IconButton
             aria-label="See notifications"
             borderRadius="27px"
-            border="1px solid #DADDDD"
+            border="1px solid"
+            borderColor="borderInput"
             bg="transparent"
             padding="11px"
             w="10"
             h="10"
-            icon={<BellIcon w="5" h="5" />}
-          />
+          >
+            <BellIcon w="5" h="5" />
+          </IconButton>
         </HStack>
         <Menu />
       </HStack>

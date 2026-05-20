@@ -1,17 +1,12 @@
 'use client';
-import { Link } from '@chakra-ui/next-js';
+import NextLink from 'next/link';
 import {
   Avatar,
   Button,
   HStack,
   Heading,
+  Link,
   Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
   VStack,
 } from '@chakra-ui/react';
 import { DocumentDownloadIcon } from './icons';
@@ -30,7 +25,7 @@ export default function LastOrders() {
       paddingBlockEnd="31px"
       paddingInline="5"
       borderRadius="14px"
-      bg="white"
+      bg="cardBg"
       rowGap="14px"
       align="stretch"
       h="auto"
@@ -39,7 +34,7 @@ export default function LastOrders() {
       <HStack as="header" justify="space-between">
         <Heading>Last Orders</Heading>
         <Link
-          href="/"
+          asChild
           color="gfc.primary.400"
           fontWeight="medium"
           fontSize="lg"
@@ -47,7 +42,7 @@ export default function LastOrders() {
           transition="all 0.4s ease-in-out"
           _hover={{ color: 'gfc.primary.500' }}
         >
-          See All
+          <NextLink href="/">See All</NextLink>
         </Link>
       </HStack>
       <OrderTableComponent data={orders} />
@@ -57,24 +52,28 @@ export default function LastOrders() {
 
 function OrderTableComponent({ data }: { data: Array<Order> }) {
   return (
-    <TableContainer>
-      <Table variant="simple">
-        <Thead>
-          <Tr>
-            <Th>Name</Th>
-            <Th display={{ base: 'none', sm: 'table-cell' }}>Date</Th>
-            <Th display={{ base: 'none', md: 'table-cell' }}>Amount</Th>
-            <Th display={{ base: 'none', md: 'table-cell' }}>Status</Th>
-            <Th>Invoice</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {data.map((order: Order) => (
-            <TableRow key={order.id} order={order} />
-          ))}
-        </Tbody>
-      </Table>
-    </TableContainer>
+    <Table.Root>
+      <Table.Header>
+        <Table.Row>
+          <Table.ColumnHeader>Name</Table.ColumnHeader>
+          <Table.ColumnHeader display={{ base: 'none', sm: 'table-cell' }}>
+            Date
+          </Table.ColumnHeader>
+          <Table.ColumnHeader display={{ base: 'none', md: 'table-cell' }}>
+            Amount
+          </Table.ColumnHeader>
+          <Table.ColumnHeader display={{ base: 'none', md: 'table-cell' }}>
+            Status
+          </Table.ColumnHeader>
+          <Table.ColumnHeader>Invoice</Table.ColumnHeader>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        {data.map((order: Order) => (
+          <TableRow key={order.id} order={order} />
+        ))}
+      </Table.Body>
+    </Table.Root>
   );
 }
 
@@ -82,24 +81,29 @@ function TableRow({ order }: { order: Order }) {
   const { imageUrl } = useUnsplashImage(order.profilePictureUrl);
 
   return (
-    <Tr>
-      <Td>
+    <Table.Row>
+      <Table.Cell>
         <HStack columnGap="10px">
-          <Avatar name={order.name} src={imageUrl ?? ''} w="32px" h="32px" />
+          <Avatar.Root w="32px" h="32px">
+            {imageUrl ? <Avatar.Image src={imageUrl} /> : null}
+            <Avatar.Fallback>{order.name.charAt(0)}</Avatar.Fallback>
+          </Avatar.Root>
           <span>{order.name}</span>
         </HStack>
-      </Td>
-      <Td display={{ base: 'none', sm: 'table-cell' }}>{order.date}</Td>
-      <Td display={{ base: 'none', md: 'table-cell' }}>
+      </Table.Cell>
+      <Table.Cell display={{ base: 'none', sm: 'table-cell' }}>
+        {order.date}
+      </Table.Cell>
+      <Table.Cell display={{ base: 'none', md: 'table-cell' }}>
         ${order.amount.toLocaleString()}
-      </Td>
-      <Td
+      </Table.Cell>
+      <Table.Cell
         color={order.status === 'Paid' ? 'gfc.primary.400' : 'gfc.error'}
         display={{ base: 'none', md: 'table-cell' }}
       >
         {order.status}
-      </Td>
-      <Td>
+      </Table.Cell>
+      <Table.Cell>
         <Button
           aria-label="View file"
           columnGap="6px"
@@ -117,7 +121,7 @@ function TableRow({ order }: { order: Order }) {
           <DocumentDownloadIcon w="4" h="4" />
           <span>View</span>
         </Button>
-      </Td>
-    </Tr>
+      </Table.Cell>
+    </Table.Row>
   );
 }

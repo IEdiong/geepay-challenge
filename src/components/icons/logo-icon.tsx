@@ -2,7 +2,14 @@ import { Icon } from '@chakra-ui/react';
 import { IconProps } from '@chakra-ui/react';
 
 const LogoIcon = (props: IconProps) => (
-  <Icon width="40" height="40" viewBox="0 0 40 40" fill="none" {...props}>
+  <Icon
+    asChild={false}
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    fill="none"
+    {...props}
+  >
     <path
       fillRule="evenodd"
       clipRule="evenodd"

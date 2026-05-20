@@ -3,6 +3,7 @@ import { IconProps } from '@chakra-ui/react';
 
 const SmallGraphGrowth = (props: IconProps) => (
   <Icon
+    asChild={false}
     xmlns="http://www.w3.org/2000/svg"
     width="106"
     height="33"

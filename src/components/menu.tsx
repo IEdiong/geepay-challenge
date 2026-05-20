@@ -17,21 +17,25 @@ export default function Menu() {
       paddingBlock="6px"
       paddingInline="2"
       borderRadius="28px"
-      border="1px solid #DADDDD"
+      border="1px solid"
+      borderColor="borderInput"
       bg="transparent"
     >
       <HStack>
-        <Avatar name="Justin Bergson" src={imageUrl ?? ''} w="38px" h="38px" />
+        <Avatar.Root w="38px" h="38px">
+          {imageUrl ? <Avatar.Image src={imageUrl} /> : null}
+          <Avatar.Fallback>JB</Avatar.Fallback>
+        </Avatar.Root>
         <VStack
           display={{ base: 'none', lg: 'flex' }}
           rowGap="1"
           align="flex-end"
           lineHeight="normal"
         >
-          <Text color="#26282C" fontWeight="400">
+          <Text color="textPrimary" fontWeight="400">
             Justin Bergson
           </Text>
-          <Text as="small" fontSize="sm" fontWeight="400" color="#787486">
+          <Text as="small" fontSize="sm" fontWeight="400" color="textMuted">
             Justin@gmail.com
           </Text>
         </VStack>

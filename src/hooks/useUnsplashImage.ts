@@ -6,7 +6,7 @@ export default function useUnsplashImage(imageId: string) {
   useEffect(() => {
     async function fetchImages() {
       const res = await fetch(
-        `https://api.unsplash.com/photos/${imageId}/?client_id=${process.env.NEXT_PUBLIC_client_id}`
+        `https://api.unsplash.com/photos/${imageId}/?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}`
       );
 
       if (res.ok) {

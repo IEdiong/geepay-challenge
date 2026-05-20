@@ -1,5 +1,6 @@
 'use client';
-import { Box, Button, Flex, VStack } from '@chakra-ui/react';
+import { Box, Button, Flex, Link, VStack } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import {
   AnalyticsIcon,
   ArrowRightIcon,
@@ -14,16 +15,16 @@ import {
   SunIcon,
   UsersIcon,
 } from './icons';
-import { Link } from '@chakra-ui/next-js';
-import { useState } from 'react';
+import { useColorMode } from '@/components/ui/color-mode';
 
 export default function Sidebar() {
   return (
     <Box
       as="nav"
       w={{ base: '0', sm: '20' }}
-      bg="#F7F8FA"
-      borderRight="1px solid #EBECF2"
+      bg="sidebarBg"
+      borderRight="1px solid"
+      borderColor="borderDefault"
       paddingBlock="5"
       display={{ base: 'none', sm: 'flex' }}
       flexDirection="column"
@@ -80,7 +81,7 @@ function NavLink({
 }) {
   return (
     <Link
-      href="/"
+      asChild
       paddingBlock="2"
       w="full"
       display="flex"
@@ -99,36 +100,34 @@ function NavLink({
         top: '50%',
         transform: 'translateY(-50%)',
         width: '3px',
-        backgroundColor: '#0D062D',
+        backgroundColor: 'textPrimary',
         borderLeftRadius: '5px',
         transition: 'all 0.3s ease-in',
         height: isActive ? '21px' : '0',
         opacity: isActive ? '1' : '0',
       }}
     >
-      {children}
+      <NextLink href="/">{children}</NextLink>
     </Link>
   );
 }
 
 function ThemeSwitcher() {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const { toggleColorMode, colorMode } = useColorMode();
+  const isDarkTheme = colorMode === 'dark';
 
   return (
     <Button
-      onClick={() => setIsDarkTheme(!isDarkTheme)}
+      onClick={toggleColorMode}
       aria-label="Toggle theme"
       w="46px"
       h="92px"
       borderRadius="100px"
       p="2"
-      bg="white"
+      bg="cardBg"
       flexDir="column"
       gap="4"
       pos="relative"
-      // _hover={{
-      //   bg: 'white',
-      // }}
       _before={{
         content: '""',
         position: 'absolute',
@@ -146,7 +145,7 @@ function ThemeSwitcher() {
       <Flex align="center" justify="center" w="30px" h="30px" zIndex="1">
         <SunIcon
           transition="all .4s ease-in-out"
-          color={!isDarkTheme ? 'white' : '#B2ABAB'}
+          color={!isDarkTheme ? 'white' : 'textMuted'}
           w={!isDarkTheme ? '16px' : '30px'}
           h={!isDarkTheme ? '16px' : '30px'}
         />
@@ -154,7 +153,7 @@ function ThemeSwitcher() {
       <Flex align="center" justify="center" w="30px" h="30px" zIndex="1">
         <MoonIcon
           transition="all .4s ease-in-out"
-          color={isDarkTheme ? 'white' : '#B2ABAB'}
+          color={isDarkTheme ? 'white' : 'textMuted'}
           w={isDarkTheme ? '18px' : ''}
           h={isDarkTheme ? '18px' : ''}
         />
